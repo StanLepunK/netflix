@@ -9,6 +9,7 @@ import {
   Title,
   Subtitle,
   Image,
+  Pane,
 } from './styles/jumbotron_style';
 
 Jumbotron.propTypes = {
@@ -43,4 +44,9 @@ Jumbotron.SubTitle = function JumbotronSubTitle({ children, ...rest_props }) {
 // eslint-disable-next-line react/prop-types
 Jumbotron.Image = function JumbotronImage({ ...rest_props }) {
   return <Image {...rest_props} />;
+};
+
+// eslint-disable-next-line react/prop-types
+Jumbotron.Pane = function JumbotronPane({ ...rest_props }) {
+  return <Pane {...rest_props} />;
 };

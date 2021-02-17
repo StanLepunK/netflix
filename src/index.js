@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { GlobalStyles } from './global-styles';
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* In my case this global style change nothing :( */}
+    <GlobalStyles />
     <App />
   </React.StrictMode>,
   document.getElementById('root')

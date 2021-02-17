@@ -1,6 +1,11 @@
 import React from 'react';
 
-import Jumbotron from '../components/jumbotron';
+// classic import
+// import Jumbotron from '../components/jumbotron/Jumbotron';
+
+// use master.js to call compoents
+import { Jumbotron } from '../components/master.js';
+
 import jumbo_data from '../fixtures/jumbo.json';
 
 export function JumbotronContainer() {
@@ -9,11 +14,13 @@ export function JumbotronContainer() {
     <Jumbotron.Container>
       {jumbo_data.map((elem) => (
         <Jumbotron key={elem.id} direction={elem.direction}>
-          <Jumbotron.Title>{elem.title}</Jumbotron.Title>
-          <Jumbotron.SubTitle>{elem.subTitle}</Jumbotron.SubTitle>
-          {/* {`mode${modeNumber}`} */}
-          <Jumbotron.Image src={`${path}${elem.path_img}`} alt={elem.alt} />
-          {/* <Jumbotron.Image src=`{${{path}}${elem.path_img}` alt={elem.alt} /> */}
+          <Jumbotron.Pane>
+            <Jumbotron.Title>{elem.title}</Jumbotron.Title>
+            <Jumbotron.SubTitle>{elem.subTitle}</Jumbotron.SubTitle>
+          </Jumbotron.Pane>
+          <Jumbotron.Pane>
+            <Jumbotron.Image src={`${path}${elem.path_img}`} alt={elem.alt} />
+          </Jumbotron.Pane>
         </Jumbotron>
       ))}
     </Jumbotron.Container>
