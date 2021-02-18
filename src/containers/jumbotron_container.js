@@ -5,11 +5,12 @@ import React from 'react';
 
 // use master.js to call compoents
 import { Jumbotron } from '../components/master.js';
+import { MEDIA_PATH } from '../constants/constants.js';
 
 import jumbo_data from '../fixtures/jumbo.json';
 
 export function JumbotronContainer() {
-  let path = `https://raw.githubusercontent.com/StanLepunK/netflix/master`;
+  // let path = `https://raw.githubusercontent.com/StanLepunK/netflix/master`;
   return (
     <Jumbotron.Container>
       {jumbo_data.map((elem) => (
@@ -19,7 +20,10 @@ export function JumbotronContainer() {
             <Jumbotron.SubTitle>{elem.subTitle}</Jumbotron.SubTitle>
           </Jumbotron.Pane>
           <Jumbotron.Pane>
-            <Jumbotron.Image src={`${path}${elem.path_img}`} alt={elem.alt} />
+            <Jumbotron.Image
+              src={`${MEDIA_PATH}${elem.path_img}`}
+              alt={elem.alt}
+            />
           </Jumbotron.Pane>
         </Jumbotron>
       ))}
