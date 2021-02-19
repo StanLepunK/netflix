@@ -1,19 +1,13 @@
 import React from 'react';
 import { Link as ReachRouterLink } from 'react-router-dom';
-import {
-  Container,
-  Frame,
-  Logo,
-  Background,
-  ButtonLink,
-} from './styles/header_style';
+import { Container, Logo, Background, ButtonLink } from './styles/header_style';
 
 import PropTypes from 'prop-types';
 
 Header.propTypes = {
   children: PropTypes.object,
   rest_props: PropTypes.object,
-  bg: PropTypes.boolean,
+  bg: PropTypes.bool,
 };
 
 export default function Header({ bg = true, children, rest_props }) {

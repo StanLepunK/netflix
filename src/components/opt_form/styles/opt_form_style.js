@@ -47,7 +47,7 @@ export const Button = styled.button`
     img {
       filter: brightness(0) invert(0);
     }
-    background: yellow;
+    background: white;
   }
 
   @media (max-width: 1000px) {
