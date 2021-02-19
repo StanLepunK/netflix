@@ -5,11 +5,27 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { GlobalStyles } from './global-styles';
 
+import { FirebaseContext } from './context/context_firebase';
+
+const config = {
+  apiKey: 'AIzaSyCgJ3_2ydm4CLdfqDJYxtv8JWDanoJtpCM',
+  authDomain: 'stanetflix.firebaseapp.com',
+  databaseURL:
+    'https://stanetflix-default-rtdb.europe-west1.firebasedatabase.app',
+  projectId: 'stanetflix',
+  storageBucket: 'stanetflix.appspot.com',
+  messagingSenderId: '182516127561',
+  appId: '1:182516127561:web:6238661ab1b0b4f4676c98',
+};
+
+const firebase = window.firebase.initializeApp(config);
+
 ReactDOM.render(
   <React.StrictMode>
-    {/* In my case this global style change nothing :( */}
-    <GlobalStyles />
-    <App />
+    <FirebaseContext.Provider value={{ firebase: window.firebase }}>
+      <GlobalStyles />
+      <App />
+    </FirebaseContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
