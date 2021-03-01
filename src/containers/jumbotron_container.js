@@ -4,7 +4,7 @@ import React from 'react';
 // import Jumbotron from '../components/jumbotron/Jumbotron';
 
 // use master.js to call compoents
-import { Jumbotron } from '../components/master.js';
+import { Jumbotron } from '../components/h.js';
 import { MEDIA_PATH } from '../constants/constants.js';
 
 import jumbo_data from '../fixtures/jumbo.json';

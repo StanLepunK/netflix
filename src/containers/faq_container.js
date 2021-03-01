@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Accordion, OptForm } from '../components/master.js';
+import { Accordion, OptForm } from '../components/h.js';
 import faq_data from '../fixtures/faqs.json';
 
 export function FaqContainer() {

@@ -4,7 +4,7 @@ import React from 'react';
 // import Footer from '../components/footer/Footer';
 
 // use master.js to call compoents
-import { Footer } from '../components/master.js';
+import { Footer } from '../components/h.js';
 
 export function FooterContainer() {
   return (

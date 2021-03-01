@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Header } from '../components/master.js';
+import { Header } from '../components/h.js';
 import * as ROUTES from '../constants/routes_constants.js';
 import { MEDIA_PATH } from '../constants/constants.js';
 

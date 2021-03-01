@@ -4,3 +4,4 @@ export { default as Accordion } from './accordion/Accordion.js';
 export { default as OptForm } from './opt_form/OptForm.js';
 export { default as Header } from './header/Header.js';
 export { default as Feature } from './feature/Feature.js';
+export { default as Form } from './form/Form.js';
