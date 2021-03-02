@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import { FirebaseContext } from '../context/context_firebase';
+
+import * as ROUTES from '../constants/routes_constants';
+
 import { HeaderContainer } from '../containers/header_container';
 import { FooterContainer } from '../containers/footer_container';
 
 import { Form } from '../components/h';
-import * as ROUTES from '../constants/routes_constants';
 
 export default function Signup() {
+  const history = useHistory();
+  const { firebase } = useContext(FirebaseContext);
+
   const [pseudo, set_pseudo] = useState('');
   const [email, set_email] = useState('');
   const [password, set_password] = useState('');
@@ -17,8 +24,26 @@ export default function Signup() {
     password === '' ||
     password !== confirm_password;
 
+  // https://firebase.google.com/docs/auth/web/password-auth
   const signup = (event) => {
     event.preventDefault();
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((result) =>
+        result.user
+          .updateProfile({
+            displayName: pseudo,
+            photoURL: Math.floor(Math.random() * 5) + 1,
+          })
+          .then(() => {
+            set_email('');
+            set_password('');
+            set_error('');
+            history.push(ROUTES.BROWSE);
+          })
+      )
+      .catch((error) => set_error(error.message));
   };
 
   return (

@@ -1,20 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import { FirebaseContext } from '../context/context_firebase';
+
+import * as ROUTES from '../constants/routes_constants';
+
 import { Form } from '../components/h';
 import { HeaderContainer } from '../containers/header_container';
 import { FooterContainer } from '../containers/footer_container';
 
 export default function Signin() {
+  const history = useHistory();
+  const { firebase } = useContext(FirebaseContext);
+
   const [error, set_error] = useState('');
   const [email, set_email] = useState('');
   const [password, set_password] = useState('');
 
   const isInvalid = (password === '') | (email === '');
 
+  // https://firebase.google.com/docs/auth/web/password-auth
   const signin = (event) => {
     event.preventDefault();
-
-    // call in here to firebase to authenticate the user
-    // if there's an error, populate the error state
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((user_credential) => {
+        let user = user_credential.user;
+        console.log('user', user);
+        set_email('');
+        set_password('');
+        set_error('');
+        history.push(ROUTES.BROWSE);
+      })
+      .catch((error) => set_error(error.message));
   };
 
   return (
