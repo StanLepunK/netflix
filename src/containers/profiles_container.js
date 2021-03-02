@@ -28,12 +28,12 @@ export function SelectProfileContainer({ user, set_profile }) {
         </Profiles.Title>
         <Profiles.List>
           <Profiles.User
-          // onClick={() =>
-          //   set_profile({
-          //     displayName: user.displayName,
-          //     photoURL: user.photoURL,
-          //   })
-          // }
+            onClick={() =>
+              set_profile({
+                displayName: user.displayName,
+                photoURL: user.photoURL,
+              })
+            }
           >
             <Profiles.Picture src={user.photoURL} />
             <Profiles.Name>{user.displayName}</Profiles.Name>

@@ -12,14 +12,11 @@ function App() {
       <Switch>
         <Route path={ROUTES.SIGN_IN}>
           <Signin />
-          {/* <p>I will be the sign in page</p> */}
         </Route>
         <Route path={ROUTES.SIGN_UP}>
           <Signup />
-          {/* <p>I will be the sign up page</p> */}
         </Route>
         <Route path={ROUTES.BROWSE}>
-          {/* <p>I will be the browse page</p> */}
           <Browse />
         </Route>
         <Route path={ROUTES.HOME}>
