@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link as ReachRouterLink } from 'react-router-dom';
+import { MEDIA_PATH } from '../../constants/constants.js';
 import {
   Container,
   Logo,
@@ -11,6 +12,12 @@ import {
   Feature,
   FeatureCallOut,
   PlayButton,
+  Search,
+  SearchIcon,
+  SearchInput,
+  Picture,
+  Profile,
+  Dropdown,
 } from './styles/header_style';
 
 import PropTypes from 'prop-types';
@@ -75,4 +82,45 @@ Header.FeatureCallOut = function HeaderFeatureCallOut({
 // eslint-disable-next-line react/prop-types
 Header.PlayButton = function HeaderPlayButton({ children, ...rest_props }) {
   return <PlayButton {...rest_props}>{children}</PlayButton>;
+};
+
+Header.Search = function HeaderSearch({
+  // eslint-disable-next-line react/prop-types
+  search_term,
+  // eslint-disable-next-line react/prop-types
+  set_search_term,
+  ...rest_props
+}) {
+  const [search_active, set_search_active] = useState(false);
+
+  return (
+    <Search {...rest_props}>
+      <SearchIcon onClick={() => set_search_active(!search_active)}>
+        <img src={`${MEDIA_PATH}/images/icons/search.png`} alt="Search" />
+      </SearchIcon>
+      <SearchInput
+        value={search_term}
+        onChange={({ target }) => set_search_term(target.value)}
+        placeholder="Search files and series"
+        active={search_active}
+      />
+    </Search>
+  );
+};
+
+// eslint-disable-next-line react/prop-types
+Header.Picture = function HeaderPicture({ src, ...rest_props }) {
+  return (
+    <Picture {...rest_props} src={`${MEDIA_PATH}/images/users/${src}.png`} />
+  );
+};
+
+// eslint-disable-next-line react/prop-types
+Header.Dropdown = function HeaderDropdown({ children, ...rest_props }) {
+  return <Dropdown {...rest_props}>{children}</Dropdown>;
+};
+
+// eslint-disable-next-line react/prop-types
+Header.Profile = function HeaderProfile({ children, ...rest_props }) {
+  return <Profile {...rest_props}>{children}</Profile>;
 };

@@ -19,6 +19,28 @@ const config = {
 };
 
 const firebase = window.firebase.initializeApp(config);
+// must be done only once after need to be remove
+/**
+ Change the rule in the firestore
+ // orignal one 
+ rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+// new rule
+    match /{document=**} {
+      allow read, write: if false;
+    }
+ */
+
+// import { seedDatabase } from './seed';
+
+// must be done only once after need to be remove
+// seedDatabase(firebase);
 
 ReactDOM.render(
   <React.StrictMode>
