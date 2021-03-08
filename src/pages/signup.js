@@ -37,13 +37,15 @@ export default function Signup() {
             photoURL: Math.floor(Math.random() * 5) + 1,
           })
           .then(() => {
-            set_email('');
-            set_password('');
-            set_error('');
+            console.log('result.user', result.user);
             history.push(ROUTES.BROWSE);
           })
       )
-      .catch((error) => set_error(error.message));
+      .catch((error) => {
+        set_email('');
+        set_password('');
+        set_error(error.message);
+      });
   };
 
   return (

@@ -17,7 +17,7 @@ Diapo.propTypes = {
 };
 
 function Diapo({ slide_elem, category }) {
-  console.log('slide_elem', slide_elem);
+  // console.log('slide_elem', slide_elem);
   if (slide_elem !== undefined) {
     return (
       <Card key={`${category}-${slide_elem.title.toLowerCase()}`}>
@@ -44,7 +44,7 @@ function Diapo({ slide_elem, category }) {
       </Card>
     );
   } else {
-    console.log("c'est null");
+    //console.log("c'est null");
     return null;
   }
 }
@@ -105,8 +105,8 @@ export function BrowseContainer({ slides }) {
   }, [search_term]);
   // search a good term but don't work and return undefined array content.
 
-  // console.log('search_term', search_term);
-  // console.log('slide_rows', slide_rows);
+  console.log('search_term', search_term);
+  console.log('slide_rows', slide_rows);
 
   return profile.displayName ? (
     <>

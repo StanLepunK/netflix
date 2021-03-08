@@ -24,15 +24,14 @@ export default function Signin() {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then((user_credential) => {
-        let user = user_credential.user;
-        console.log('user', user);
-        set_email('');
-        set_password('');
-        set_error('');
+      .then(() => {
         history.push(ROUTES.BROWSE);
       })
-      .catch((error) => set_error(error.message));
+      .catch((error) => {
+        set_email('');
+        set_password('');
+        set_error(error.message);
+      });
   };
 
   return (
