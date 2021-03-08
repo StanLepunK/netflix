@@ -91,7 +91,6 @@ export function BrowseContainer({ slides }) {
 
   useEffect(() => {
     const fuse = new Fuse(slide_rows, {
-      // where from this data variable ????
       keys: ['data.description', 'data.title', 'data.genre'],
     });
     const results = fuse.search(search_term).map(({ elem }) => elem);
